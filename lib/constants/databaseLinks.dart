@@ -1,7 +1,5 @@
-const physicsChapters = "https://edu-foundation-kudos-dot-com.vercel.app/api/chapter/chapter/physics";
-const chemistryChapters = "https://edu-foundation-kudos-dot-com.vercel.app/api/chapter/chapter/chemistry";
-const biologyChapters = "https://edu-foundation-kudos-dot-com.vercel.app/api/chapter/chapter/biology";
-const mathsChapters = "https://edu-foundation-kudos-dot-com.vercel.app/api/chapter/chapter/mathematics";
+//base link for chapter api. Subject name added from respective files of subjects
+const chapterLink = "https://edu-foundation-kudos-dot-com.vercel.app/api/chapter/chapter/";
 
 // ----------------------------------------------------
 // get question of every subject

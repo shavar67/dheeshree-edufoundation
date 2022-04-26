@@ -1,9 +1,6 @@
-import 'dart:convert';
-
-import 'package:edufoundation_app/utils/chapters.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:edufoundation_app/constants/databaseLinks.dart';
+import 'package:edufoundation_app/services/apiCall.dart';
+
 class Biology extends StatefulWidget {
   const Biology({ Key? key }) : super(key: key);
 
@@ -13,22 +10,7 @@ class Biology extends StatefulWidget {
 
 class _BiologyState extends State<Biology> {
   
-
-  Future<List<Chapter>> getChapters() async {
-      
-      const String url = biologyChapters;
-      
-        var response = await http.get(Uri.parse(url));
-        var responseBody = json.decode(response.body);
-        var responseChapters = responseBody['result'];
-        List<Chapter> chapters = [];
-        for(var chapter in responseChapters){
-          Chapter ch = Chapter(chapter['name']);
-          chapters.add(ch);
-        }
-      return chapters;
-      
-    }
+  ApiCall ac = new ApiCall();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +25,8 @@ class _BiologyState extends State<Biology> {
         padding: EdgeInsets.only(top: 40),
         color: Colors.white,
         child: FutureBuilder(
-          future: getChapters(),
+          // future: getChapters("biology"),
+          future: ac.getChapters("biology"),
           builder: (BuildContext context, AsyncSnapshot snapshot){
             if(snapshot.data == null){
               return Center(
