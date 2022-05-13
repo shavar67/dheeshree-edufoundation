@@ -1,4 +1,5 @@
 import 'package:edufoundation_app/services/apiCall.dart';
+import 'package:edufoundation_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 class Chemistry extends StatefulWidget {
@@ -36,14 +37,23 @@ class _ChemistryState extends State<Chemistry> {
               return ListView.builder(
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index){
-                  return Container(
-                    margin: EdgeInsets.zero,
-                    color: index%2==0 ? Colors.grey.shade300 : Colors.grey.shade50,
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                    child: Text(
-                      snapshot.data[index].name,
-                      style: TextStyle(
-                        fontSize: 18.0,
+                  return InkWell(
+                    onTap: (){
+                      Navigator.of(context).pushNamed(MyRoutes.chemistryQuestions, arguments: { 
+                        'subject': "chemistry",
+                        'chapter': snapshot.data[index].name
+                      }
+                    );
+                    },
+                    child: Container(
+                      margin: EdgeInsets.zero,
+                      color: index%2==0 ? Colors.grey.shade300 : Colors.grey.shade50,
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      child: Text(
+                        snapshot.data[index].name,
+                        style: TextStyle(
+                          fontSize: 18.0,
+                        ),
                       ),
                     ),
                   );

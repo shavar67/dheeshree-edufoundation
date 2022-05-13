@@ -1,6 +1,7 @@
 import 'package:edufoundation_app/screens/biology.dart';
 import 'package:edufoundation_app/screens/chemistry.dart';
 import 'package:edufoundation_app/screens/maths.dart';
+import 'package:edufoundation_app/screens/subjectQuestions.dart';
 import 'package:flutter/material.dart';
 import 'package:edufoundation_app/utils/home.dart';
 import 'package:edufoundation_app/screens/login.dart';
@@ -11,7 +12,7 @@ import 'package:edufoundation_app/utils/routes.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: '/',
+    initialRoute: MyRoutes.physicsQuestions,
     routes: {
       '/' : (context) => MyLogin(),
       MyRoutes.register : (context) => MyRegister(),
@@ -20,6 +21,10 @@ void main() {
       MyRoutes.chemistry : (context) => Chemistry(),
       MyRoutes.maths : (context) => Maths(),
       MyRoutes.biology : (context) => Biology(),
+      MyRoutes.physicsQuestions : (context) => Questions(),
+      MyRoutes.chemistryQuestions : (context) => Questions(),
+      MyRoutes.mathsQuestions : (context) => Questions(),
+      MyRoutes.biologyQuestions : (context) => Questions(),
     },
   ));
 }

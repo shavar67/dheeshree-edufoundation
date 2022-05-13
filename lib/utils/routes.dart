@@ -6,4 +6,8 @@ class MyRoutes {
   static String chemistry = '/chemistry';
   static String maths = '/maths';
   static String biology = '/biology';
+  static String physicsQuestions = '$physics/questions';
+  static String chemistryQuestions = '$chemistry/questions';
+  static String mathsQuestions = '$maths/questions';
+  static String biologyQuestions = '$biology/questions';
 }
