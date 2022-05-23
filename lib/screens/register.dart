@@ -171,7 +171,7 @@ class _MyRegisterState extends State<MyRegister> {
                         // Button for Sign in
                         TextButton(
                           onPressed: (){
-                            Navigator.pushReplacementNamed(context, 'login');
+                            // Navigator.pushReplacementNamed(context, 'login');
                           }, 
                           style: ButtonStyle(
                             padding: MaterialStateProperty.all(EdgeInsets.zero),

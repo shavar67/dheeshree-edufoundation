@@ -29,8 +29,8 @@ class Dashboard extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.book,
+                        ImageIcon(
+                          AssetImage('assets/physics_icon.png'),
                           color: Colors.white,
                           size: 80,
                         ),
@@ -61,8 +61,8 @@ class Dashboard extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.book,
+                        ImageIcon(
+                          AssetImage('assets/chemistry_icon.png'),
                           color: Colors.white,
                           size: 80,
                         ),
@@ -98,8 +98,8 @@ class Dashboard extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.book,
+                        ImageIcon(
+                          AssetImage('assets/maths_icon.png'),
                           color: Colors.white,
                           size: 80,
                         ),
@@ -130,8 +130,8 @@ class Dashboard extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.book,
+                        ImageIcon(
+                          AssetImage('assets/bio_icon.png'),
                           color: Colors.white,
                           size: 80,
                         ),

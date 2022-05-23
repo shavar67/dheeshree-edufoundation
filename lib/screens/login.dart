@@ -139,7 +139,7 @@ class _MyLoginState extends State<MyLogin> {
                         // Button for Sign up
                         TextButton(
                           onPressed: (){
-                            Navigator.pushNamed(context, MyRoutes.register);
+                            // Navigator.pushNamed(context, MyRoutes.register);
                           }, 
                           child: Text(
                             'Register',

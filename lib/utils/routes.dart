@@ -1,6 +1,7 @@
 class MyRoutes {
-  static String login = '/';
-  static String register = '/register';
+  // static String login = '/';
+  // static String register = '/register';
+  static String splashScreen = '/';
   static String home = '/home';
   static String physics = '/physics';
   static String chemistry = '/chemistry';
