@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:edufoundation_app/utils/home.dart';
+import 'package:edufoundation_app/utils/bottomBar.dart';
 import 'package:edufoundation_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -23,7 +23,7 @@ class _SplashState extends State<Splash> {
 
   navigateToHome() async {
     await Future.delayed(Duration(milliseconds: 1500), (){});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomBar()));
   }
 
   @override

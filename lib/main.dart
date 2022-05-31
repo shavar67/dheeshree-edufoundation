@@ -4,7 +4,7 @@ import 'package:edufoundation_app/screens/maths.dart';
 import 'package:edufoundation_app/screens/splashScreen.dart';
 import 'package:edufoundation_app/screens/subjectQuestions.dart';
 import 'package:flutter/material.dart';
-import 'package:edufoundation_app/utils/home.dart';
+import 'package:edufoundation_app/utils/bottomBar.dart';
 import 'package:edufoundation_app/screens/login.dart';
 import 'package:edufoundation_app/screens/physics.dart';
 import 'package:edufoundation_app/screens/register.dart';
@@ -18,15 +18,15 @@ void main() {
       // '/' : (context) => MyLogin(),
       '/' : (context) => Splash(),
       // MyRoutes.register : (context) => MyRegister(),
-      MyRoutes.home : (context) => Home(),
+      MyRoutes.home : (context) => BottomBar(),
       MyRoutes.physics : (context) => Physics(),
       MyRoutes.chemistry : (context) => Chemistry(),
       MyRoutes.maths : (context) => Maths(),
       MyRoutes.biology : (context) => Biology(),
-      MyRoutes.physicsQuestions : (context) => Questions(),
-      MyRoutes.chemistryQuestions : (context) => Questions(),
-      MyRoutes.mathsQuestions : (context) => Questions(),
-      MyRoutes.biologyQuestions : (context) => Questions(),
+      MyRoutes.physicsQuestions : (context) => Questions(subjectName: "", chapterName: ""),
+      MyRoutes.chemistryQuestions : (context) => Questions(subjectName: "", chapterName: ""),
+      MyRoutes.mathsQuestions : (context) => Questions(subjectName: "", chapterName: ""),
+      MyRoutes.biologyQuestions : (context) => Questions(subjectName: "", chapterName: ""),
     },
   ));
 }

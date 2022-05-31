@@ -1,3 +1,4 @@
+import 'package:edufoundation_app/screens/subjectQuestions.dart';
 import 'package:edufoundation_app/services/apiCall.dart';
 import 'package:edufoundation_app/utils/routes.dart';
 import 'package:flutter/material.dart';
@@ -39,11 +40,18 @@ class _PhysicsState extends State<Physics> {
                 itemBuilder: (BuildContext context, int index){
                   return InkWell(
                     onTap: (){
-                      Navigator.of(context).pushNamed(MyRoutes.physicsQuestions, arguments: { 
-                        'subject': "physics",
-                        'chapter': snapshot.data[index].name
-                      }
-                    );
+                    //   Navigator.of(context).push(Questions(
+                    //     subjectName: "physics", 
+                    //     chapterName: snapshot.data[index].name
+                    //   )
+                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => Questions(
+                          subjectName: "physics",
+                          chapterName: snapshot.data[index].name,
+                        ),),);
                     },
                     child: Container(
                       margin: EdgeInsets.zero,

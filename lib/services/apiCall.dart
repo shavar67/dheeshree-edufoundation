@@ -23,9 +23,8 @@ class ApiCall {
 
   Future<List<Question>> getQuestions(String subjectName, String chapterName) async {
          
-    const String url = questionLink;
-    
-      var response = await http.get(Uri.parse(url+"$subjectName/:$chapterName?page=1&limit=10"));
+    // const String url = questionLink;
+      var response = await http.get(Uri.parse("https://edu-foundation-bnqyscf9q-kudos-dot-com.vercel.app/api/question/getchapter/$subjectName/$chapterName?page=1&limit=10"));
       var responseBody = json.decode(response.body);
       var responseQuestions = responseBody['result'];
       List<Question> questions = [];
@@ -35,6 +34,6 @@ class ApiCall {
         questions.add(q);
       }
     return questions;  
-  }  
+  }
 
 }

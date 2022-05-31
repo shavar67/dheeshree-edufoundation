@@ -6,14 +6,14 @@ import 'package:edufoundation_app/examList.dart';
 import 'package:edufoundation_app/screens/profile.dart';
 import 'package:edufoundation_app/screens/statistics.dart';
 
-class Home extends StatefulWidget {
-  const Home({ Key? key }) : super(key: key);
+class BottomBar extends StatefulWidget {
+  const BottomBar({ Key? key }) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<BottomBar> createState() => _BottomBarState();
 }
 
-class _HomeState extends State<Home> {
+class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
 
   List<Widget> _selectedPage = [
@@ -31,19 +31,19 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue[100],
+        backgroundColor: Colors.grey.shade200,
         // ignore: prefer_const_literals_to_create_immutables
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Dashboard',
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.format_list_bulleted),
             label: 'Exam',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info_outline),
+            icon: Icon(Icons.person),
             label: 'Profile',
           ),
         ],
