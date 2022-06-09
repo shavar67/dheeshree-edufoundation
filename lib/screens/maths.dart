@@ -22,7 +22,7 @@ class _MathsState extends State<Maths> {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.only(top: 40),
+        // padding: EdgeInsets.only(top: 40),
         color: Colors.white,
         child: FutureBuilder(
           future: ac.getChapters("mathematics"),
@@ -45,8 +45,22 @@ class _MathsState extends State<Maths> {
                     );
                     },
                     child: Container(
-                      margin: EdgeInsets.zero,
-                      color: index%2==0 ? Colors.grey.shade300 : Colors.grey.shade50,
+                      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      decoration: BoxDecoration(
+                        color: index%2==0 ? Color(0xff6699CC) : Colors.grey.shade50,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.shade200,
+                            blurRadius: 10.0, // soften the shadow
+                            spreadRadius: 2.0, //extend the shadow
+                            offset: Offset(
+                              1.0, // Move to right 10  horizontally
+                              1.0, // Move to bottom 10 Vertically
+                            ),
+                          )
+                        ],
+                      ),
                       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                       child: Text(
                         snapshot.data[index].name,

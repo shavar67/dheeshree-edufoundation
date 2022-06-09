@@ -1,5 +1,7 @@
 //base link for chapter api. Subject name added from respective files of subjects
-const chapterLink = "https://edu-foundation-kudos-dot-com.vercel.app/api/chapter/chapter/";
+//"https://edu-foundation-kudos-dot-com.vercel.app/api/chapter/chapter/";
+
+const chapterLink = "https://edu-foundation-396dk0l27-kudos-dot-com.vercel.app/api/topic/";
 const questionLink = "https://edu-foundation-kudos-dot-com.vercel.app/api/question/getchapter/";
 // ----------------------------------------------------
 // get question of every subject
@@ -12,3 +14,7 @@ const questionLink = "https://edu-foundation-kudos-dot-com.vercel.app/api/questi
 // /api/question/getexam/:exam
 
 //https://edu-foundation-bnqyscf9q-kudos-dot-com.vercel.app/api/question/getchapter/:subject/:chapter?page=1&limit=10
+
+
+// https://edu-foundation-396dk0l27-kudos-dot-com.vercel.app/api/topic/physics
+// https://edu-foundation-396dk0l27-kudos-dot-com.vercel.app/api/chapter/chapter/topic/physics

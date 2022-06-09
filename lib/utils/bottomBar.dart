@@ -31,19 +31,32 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey.shade200,
+        // backgroundColor: Colors.grey.shade200,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        showSelectedLabels: true,
+        showUnselectedLabels: false,
         // ignore: prefer_const_literals_to_create_immutables
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(
+              Icons.home,
+              size: 30,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.format_list_bulleted),
+            icon: ImageIcon(
+              AssetImage('assets/open-book.png'),
+              size: 30,
+            ),
             label: 'Exam',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(
+              Icons.person,
+              size: 30,
+            ),
             label: 'Profile',
           ),
         ],

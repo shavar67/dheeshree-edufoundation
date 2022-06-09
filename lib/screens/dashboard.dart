@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:edufoundation_app/utils/routes.dart';
 
@@ -6,12 +8,40 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 41, 77, 136),
+        foregroundColor: Colors.grey.shade50,
+        elevation: 0,
+        title: Text(
+          'Home',
+        ),
+      ),
+      extendBodyBehindAppBar: true,
+      body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 30.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.2,
+              decoration: BoxDecoration(
+                color: Color(0xff5072a7),
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(100)),
+              ),
+              child: Center(
+                child: Text(
+                  "Ace Your Game",
+                  style: TextStyle(
+                    color: Colors.grey.shade50,
+                    fontSize: 20,
+                    letterSpacing: 1.4,
+                  ),
+                ),
+              ),
+
+            ),
+    
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -22,7 +52,7 @@ class Dashboard extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.pink[800],
+                      color: Color.fromARGB(255, 180, 17, 120),
                     ),
                     height: 175,
                     width: 125,
@@ -80,7 +110,7 @@ class Dashboard extends StatelessWidget {
                 ),
               ],
             ),
-
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
