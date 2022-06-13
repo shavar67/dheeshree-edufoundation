@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+import 'package:edufoundation_app/screens/subjectChapters.dart';
 import 'package:flutter/material.dart';
 import 'package:edufoundation_app/utils/routes.dart';
 
@@ -47,8 +48,16 @@ class Dashboard extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: (){
-                    Navigator.pushNamed(context, MyRoutes.physics);
-                  },
+                    // Navigator.pushNamed(context, MyRoutes.physics);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => SubjectChapters(
+                          subjectName: "Physics",
+                        ),
+                      ),
+                      );
+                    },                  
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -79,8 +88,16 @@ class Dashboard extends StatelessWidget {
                 
                 InkWell(
                   onTap: (){
-                    Navigator.pushNamed(context, MyRoutes.chemistry);
-                  },
+                    // Navigator.pushNamed(context, MyRoutes.physics);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => SubjectChapters(
+                          subjectName: "Chemistry",
+                        ),
+                      ),
+                      );
+                    }, 
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -116,8 +133,16 @@ class Dashboard extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: (){
-                    Navigator.pushNamed(context, MyRoutes.maths);
-                  },
+                    // Navigator.pushNamed(context, MyRoutes.physics);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => SubjectChapters(
+                          subjectName: "Mathematics",
+                        ),
+                      ),
+                      );
+                    }, 
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -148,8 +173,16 @@ class Dashboard extends StatelessWidget {
                 
                 InkWell(
                   onTap: (){
-                    Navigator.pushNamed(context, MyRoutes.biology);
-                  },
+                    // Navigator.pushNamed(context, MyRoutes.physics);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => SubjectChapters(
+                          subjectName: "Biology",
+                        ),
+                      ),
+                      );
+                    }, 
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),

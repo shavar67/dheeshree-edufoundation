@@ -20,7 +20,7 @@ class _PhysicsState extends State<Physics> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text("Physics"),
-        backgroundColor: Color(0xffC71585),
+        backgroundColor: Colors.grey.shade900,
         automaticallyImplyLeading: false,
         centerTitle: true,
       ),
@@ -57,7 +57,7 @@ class _PhysicsState extends State<Physics> {
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                       decoration: BoxDecoration(
-                        color: index%2==0 ? Color.fromARGB(253, 226, 80, 173) : Colors.grey.shade50,
+                        color: index%2==0 ? Color.fromARGB(255, 155, 152, 152) : Color.fromARGB(255, 223, 220, 220),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -73,9 +73,13 @@ class _PhysicsState extends State<Physics> {
                       ),
                       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                       child: Text(
-                        snapshot.data[index].name,
+                        "${index+1}. ${snapshot.data[index].name}",
                         style: TextStyle(
                           fontSize: 18.0,
+                          // color: index%2==0 ? Color.fromARGB(255, 247, 244, 244) : Color.fromARGB(175, 7, 7, 7) ,
+                          color: index%2==0 ? Colors.white : Colors.black,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 1.2
                         ),
                       ),
                     ),
