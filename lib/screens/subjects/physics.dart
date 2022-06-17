@@ -46,13 +46,13 @@ class _PhysicsState extends State<Physics> {
                     //     chapterName: snapshot.data[index].name
                     //   )
                     // );
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => Questions(
-                          subjectName: "physics",
-                          chapterName: snapshot.data[index].name,
-                        ),),);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (_) => Questions(
+                    //       subjectName: "physics",
+                    //       chapterName: snapshot.data[index].name,
+                    //     ),),);
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),

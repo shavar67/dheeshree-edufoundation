@@ -21,16 +21,16 @@ class ApiCall {
     return chapters;  
   }  
 
-  Future<List<Question>> getQuestions(String subjectName, String chapterName) async {
+  Future<List<Question>> getQuestions(String subjectName, String chapterName, int noOfQues, int level) async {
          
-    // const String url = questionLink;
-      var response = await http.get(Uri.parse("https://edu-foundation-bnqyscf9q-kudos-dot-com.vercel.app/api/question/getchapter/$subjectName/$chapterName?page=1&limit=10"));
+    const String url = questionLink;
+      var response = await http.get(Uri.parse("$url$subjectName/$chapterName/$level?page=1&limit=$noOfQues"));
       var responseBody = json.decode(response.body);
       var responseQuestions = responseBody['result'];
       List<Question> questions = [];
       for(var question in responseQuestions){
         Question q = Question(question['question'], question['option1'], question['option2'], 
-          question['option3'], question['option4'], question['correct_answer'], question['hints']);
+          question['option3'], question['option4'], question['correct_answer']); //, question['hints']);
         questions.add(q);
       }
     return questions;  

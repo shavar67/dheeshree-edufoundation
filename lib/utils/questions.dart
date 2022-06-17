@@ -5,7 +5,7 @@ class Question{
   final String op3;
   final String op4;
   final String correctAns;
-  final String hint;
+  //final String hint;
 
-  Question(this.ques, this.op1, this.op2, this.op3, this.op4, this.correctAns, this.hint);
+  Question(this.ques, this.op1, this.op2, this.op3, this.op4, this.correctAns); //,this.hint);
 }

@@ -1,3 +1,4 @@
+import 'package:edufoundation_app/screens/selectTimerDiff.dart';
 import 'package:edufoundation_app/screens/subjectQuestions.dart';
 import 'package:edufoundation_app/services/apiCall.dart';
 import 'package:edufoundation_app/utils/routes.dart';
@@ -58,7 +59,7 @@ class _SubjectChaptersState extends State<SubjectChapters> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => Questions(
+                        builder: (_) => SelectTimerDiff(
                           subjectName: subjectName,
                           chapterName: snapshot.data[index].name,
                         ),),);

@@ -17,12 +17,12 @@ import 'package:edufoundation_app/utils/routes.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: MyRoutes.selectTimerDiff,
+    initialRoute: MyRoutes.home,
     routes: {
       // '/' : (context) => MyLogin(),
 
       // '/' : (context) => Splash(),
-      '/' : (context) => SelectTimerDiff(),
+      '/' : (context) => SelectTimerDiff(subjectName: "", chapterName: ""),
       // MyRoutes.register : (context) => MyRegister(),
       MyRoutes.home : (context) => BottomBar(),
       // MyRoutes.physics : (context) => Physics(),
@@ -30,10 +30,10 @@ void main() {
       // MyRoutes.maths : (context) => Maths(),
       // MyRoutes.biology : (context) => Biology(),
       MyRoutes.subjectChapters : (context) => SubjectChapters(subjectName: ""),
-      MyRoutes.physicsQuestions : (context) => Questions(subjectName: "", chapterName: ""),
-      MyRoutes.chemistryQuestions : (context) => Questions(subjectName: "", chapterName: ""),
-      MyRoutes.mathsQuestions : (context) => Questions(subjectName: "", chapterName: ""),
-      MyRoutes.biologyQuestions : (context) => Questions(subjectName: "", chapterName: ""),
+      // MyRoutes.physicsQuestions : (context) => Questions(subjectName: "", chapterName: "", difficulty: '', noOfQues: 0, time: 0),
+      // MyRoutes.chemistryQuestions : (context) => Questions(subjectName: "", chapterName: "", difficulty: '', noOfQues: 0, time: 0),
+      // MyRoutes.mathsQuestions : (context) => Questions(subjectName: "", chapterName: "", difficulty: '', noOfQues: 0, time: 0),
+      // MyRoutes.biologyQuestions : (context) => Questions(subjectName: "", chapterName: "", difficulty: '', noOfQues: 0, time: 0),
     },
   ));
 }

@@ -1,16 +1,29 @@
+import 'package:edufoundation_app/screens/subjectQuestions.dart';
 import 'package:flutter/material.dart';
 
 class SelectTimerDiff extends StatefulWidget {
-  const SelectTimerDiff({super.key});
+  final String subjectName;
+  final String chapterName;
+
+  const SelectTimerDiff({Key? key, required this.subjectName, required this.chapterName}):super(key: key);
 
   @override
-  State<SelectTimerDiff> createState() => _SelectTimerDiffState();
+  State<SelectTimerDiff> createState() => _SelectTimerDiffState(
+    subjectName: subjectName,
+    chapterName: chapterName
+  );
 }
 
 class _SelectTimerDiffState extends State<SelectTimerDiff> {
+  String subjectName;
+  String chapterName;
+  _SelectTimerDiffState({required this.subjectName, required this.chapterName});
+
   final _formKey = GlobalKey<FormState>();
   int time = 0;
   int noOfQues = 0;
+  String difficulty = "";
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -245,7 +258,92 @@ class _SelectTimerDiffState extends State<SelectTimerDiff> {
                   ),
                 ]
               ),
-
+              SizedBox(height: 40,),
+              Text(
+                'Difficulty : ',
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                  fontSize: 18,
+                ),
+              ),
+              
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: (){
+                      setState(() {
+                        difficulty = "Easy";
+                      });
+                    },
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all(Colors.green),
+                      backgroundColor:  MaterialStateProperty.all(Colors.white),
+                      elevation: MaterialStateProperty.all(0),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: Colors.green,
+                            width: 2
+                          ),
+                        ),
+                      )
+                    ), 
+                    child: Text(
+                      'Easy',
+                    ),
+                  ),
+                  SizedBox(width: 20,),
+                  ElevatedButton(
+                    onPressed: (){
+                      setState(() {
+                        difficulty= "Medium";
+                      });
+                    },
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all(Colors.green),
+                      backgroundColor:  MaterialStateProperty.all(Colors.white),
+                      elevation: MaterialStateProperty.all(0),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: Colors.green,
+                            width: 2
+                          ),
+                        ),
+                      )
+                    ), 
+                    child: Text(
+                      'Medium',
+                    ),
+                  ),
+                  SizedBox(width: 20,),
+                  ElevatedButton(
+                    onPressed: (){
+                      setState(() {
+                        difficulty = "Hard";
+                      });
+                    },
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all(Colors.green),
+                      backgroundColor:  MaterialStateProperty.all(Colors.white),
+                      elevation: MaterialStateProperty.all(0),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: Colors.green,
+                            width: 2
+                          ),
+                        ),
+                      )
+                    ), 
+                    child: Text(
+                      'Hard',
+                    ),
+                  ),
+                ]
+              ),
               SizedBox(height: 40,),
               Text(
                 'Duration of practice : $time',
@@ -255,11 +353,25 @@ class _SelectTimerDiffState extends State<SelectTimerDiff> {
               Text(
                 'Number of Questions to attend : $noOfQues',
               ),
+
+              SizedBox(height: 20,),
+              Text(
+                'Difficulty of Questions : $difficulty',
+              ),
               Spacer(),
               ElevatedButton(
                 onPressed: (){
-                  time!=0 && noOfQues!= 0 ? print("$time and $noOfQues selected") : print("error");
-                }, 
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => Questions(
+                          subjectName: subjectName,
+                          chapterName: chapterName,
+                          time: time,
+                          noOfQues: noOfQues,
+                          difficulty: difficulty,
+                        ),),);
+                  }, 
                 child: Text(
                   'Start Practice',
         

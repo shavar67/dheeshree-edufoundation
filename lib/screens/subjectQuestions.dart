@@ -1,28 +1,30 @@
 // ignore_for_file: no_logic_in_create_state
 
 import 'dart:async';
-import 'dart:convert';
-import 'dart:ui';
-
-import 'package:edufoundation_app/constants/databaseLinks.dart';
 import 'package:edufoundation_app/services/apiCall.dart';
-import 'package:edufoundation_app/utils/questions.dart';
-import 'package:edufoundation_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:http/http.dart' as http;
 
 class Questions extends StatefulWidget {
   final String subjectName;
   
   final String chapterName;
 
-  const Questions({ Key? key, required this.subjectName, required this.chapterName }) : super(key: key);
+  final String difficulty;
+
+  final int time;
+
+  final int noOfQues;
+
+  const Questions({ Key? key, required this.subjectName, required this.chapterName, required this.difficulty, required this.time, required this.noOfQues }) : super(key: key);
 
   @override
   State<Questions> createState() => _QuestionsState(
     subjectName: subjectName, 
-    chapterName: chapterName
+    chapterName: chapterName,
+    time: time,
+    noOfQues: noOfQues,
+    difficulty: difficulty
   );
 }
 
@@ -30,15 +32,19 @@ class _QuestionsState extends State<Questions> {
 
   String subjectName;
   String chapterName;
-  _QuestionsState({required this.subjectName, required this.chapterName});
+  int time;
+  int noOfQues;
+  String difficulty;
 
-  Duration duration = Duration(seconds: 1200);
+  _QuestionsState({required this.subjectName, required this.chapterName, 
+  required this.difficulty, required this.time, required this.noOfQues});
+
+  late Duration duration = Duration(seconds: time*60);
+
   Timer? timer;
   @override
   void initState(){
     super.initState();
-    // showStartDialog();
-    print(subjectName + chapterName);
     startTimer();
   }
 
@@ -49,7 +55,7 @@ class _QuestionsState extends State<Questions> {
   }
 
   reduceTime(){
-    final reduceSeconds = 1;
+    const reduceSeconds = 1;
 
     setState((){
       final seconds = duration.inSeconds - reduceSeconds;
@@ -73,92 +79,6 @@ class _QuestionsState extends State<Questions> {
     timer = Timer.periodic(Duration(seconds: 1), (_) => reduceTime());
   }
 
-  showStartDialog(){
-    return AlertDialog(
-          title: Text("Do you want to start the practice?"),
-          actions: [
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.green),
-                foregroundColor: MaterialStateProperty.all(Colors.white)
-              ),
-              onPressed: () => Navigator.pop(context, 'Start'),
-              child: Text('Start')
-            )
-          ],
-        );
-    // showDialog(
-    //   context: context,
-    //   builder: (context) => BackdropFilter(
-    //     filter: ImageFilter.blur(
-    //       sigmaX: 10,
-    //       sigmaY: 10
-    //     ),
-    //     child: AlertDialog(
-    //       title: Text("Do you want to start the practice?"),
-    //       actions: [
-    //         TextButton(
-    //           style: ButtonStyle(
-    //             backgroundColor: MaterialStateProperty.all(Colors.green),
-    //             foregroundColor: MaterialStateProperty.all(Colors.white)
-    //           ),
-    //           onPressed: () => Navigator.pop(context, 'Start'),
-    //           child: Text('Start')
-    //         )
-    //       ],
-    //     ),
-    //   )
-    //   // builder: (context) => AlertDialog(
-    //   //   content: Container(
-    //   //     padding: EdgeInsets.symmetric(horizontal: height * 0.05, vertical: width * 0.6),
-    //   //     child: Column(
-    //   //       children: [
-    //   //         Text(
-    //   //           "Do you want to start the test?",
-    //   //           textAlign: TextAlign.center,
-    //   //           style: TextStyle(
-    //   //             fontSize: 26.0,
-    //   //             color: Colors.grey.shade700,
-    //   //           ),
-    //   //         ),
-    //   //         SizedBox(height: 50,),
-    //   //         ElevatedButton(
-    //   //           style: ButtonStyle(
-    //   //             backgroundColor: MaterialStateProperty.all(Colors.green)
-    //   //           ),
-    //   //           onPressed: (){
-    //   //             Navigator.pop(context);
-    //   //           }, 
-    //   //           child: Text('Start')
-    //   //         )
-    //   //       ],
-    //   //     ),
-    //   //   ),
-    //   // )
-    // );
-  }
-
-
-  bool showHint = false;
-  bool showAnswer = false;
-
-  ApiCall ac = ApiCall();
-
-  // Future<List<Question>> getQuestions(String subjectName, String chapterName) async {
-         
-  //   // const String url = questionLink;
-  //     var response = await http.get(Uri.parse("https://edu-foundation-bnqyscf9q-kudos-dot-com.vercel.app/api/question/getchapter/$subjectName/$chapterName?page=1&limit=10"));
-  //     var responseBody = json.decode(response.body);
-  //     var responseQuestions = responseBody['result'];
-  //     List<Question> questions = [];
-  //     for(var question in responseQuestions){
-  //       Question q = Question(question['question'], question['option1'], question['option2'], 
-  //         question['option3'], question['option4'], question['correct_answer'], question['hints']);
-  //       questions.add(q);
-  //     }
-  //   return questions;  
-  // }
-
   Widget showTimer(){
     String twoDigits(int n) => n.toString().padLeft(2, '0');
     final hours = twoDigits(duration.inHours.remainder(60));
@@ -173,11 +93,17 @@ class _QuestionsState extends State<Questions> {
     );
   }
   
+  bool showHint = false;
+  bool showAnswer = false;
+
+  ApiCall ac = ApiCall();
+
   @override
   Widget build(BuildContext context) {
-    // var arg = ModalRoute.of(context)!.settings.arguments as Map;
-    // String subject = arg['subject'];
-    // String ch = arg['chapter'];
+    int level;
+
+    (difficulty.toLowerCase() == "easy") ? level = 1 : ((difficulty.toLowerCase() == "medium") ? level = 2 : level = 3);
+
     bool showRightWrong = false;
     
     return Scaffold(
@@ -186,7 +112,6 @@ class _QuestionsState extends State<Questions> {
           chapterName,
           
         ),
-        // centerTitle: true,
         actions: [
           Center(
             child: Padding(
@@ -200,8 +125,7 @@ class _QuestionsState extends State<Questions> {
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         color: Colors.white70,
         child: FutureBuilder(
-          // future: getQuestions(subject, ch),
-          future: ac.getQuestions(subjectName, chapterName),
+          future: ac.getQuestions(subjectName, chapterName, noOfQues, level),
           builder: (BuildContext context, AsyncSnapshot snapshot){
             if(snapshot.data == null){
               return Center(
