@@ -1,9 +1,6 @@
-import 'dart:js';
-
 import 'package:edufoundation_app/screens/selectTimerDiff.dart';
 import 'package:edufoundation_app/screens/splashScreen.dart';
 import 'package:edufoundation_app/screens/subjectChapters.dart';
-import 'package:edufoundation_app/screens/subjectQuestions.dart';
 import 'package:flutter/material.dart';
 import 'package:edufoundation_app/utils/bottomBar.dart';
 import 'package:edufoundation_app/utils/routes.dart';
@@ -17,12 +14,11 @@ import 'package:edufoundation_app/utils/routes.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: MyRoutes.home,
+    initialRoute: '/',
     routes: {
       // '/' : (context) => MyLogin(),
 
-      // '/' : (context) => Splash(),
-      '/' : (context) => SelectTimerDiff(subjectName: "", chapterName: ""),
+      '/' : (context) => Splash(),
       // MyRoutes.register : (context) => MyRegister(),
       MyRoutes.home : (context) => BottomBar(),
       // MyRoutes.physics : (context) => Physics(),
@@ -30,6 +26,7 @@ void main() {
       // MyRoutes.maths : (context) => Maths(),
       // MyRoutes.biology : (context) => Biology(),
       MyRoutes.subjectChapters : (context) => SubjectChapters(subjectName: ""),
+      MyRoutes.selectTimerDiff : (context) => SelectTimerDiff(subjectName: "", chapterName: ""),
       // MyRoutes.physicsQuestions : (context) => Questions(subjectName: "", chapterName: "", difficulty: '', noOfQues: 0, time: 0),
       // MyRoutes.chemistryQuestions : (context) => Questions(subjectName: "", chapterName: "", difficulty: '', noOfQues: 0, time: 0),
       // MyRoutes.mathsQuestions : (context) => Questions(subjectName: "", chapterName: "", difficulty: '', noOfQues: 0, time: 0),

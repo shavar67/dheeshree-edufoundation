@@ -20,9 +20,11 @@ class _SelectTimerDiffState extends State<SelectTimerDiff> {
   _SelectTimerDiffState({required this.subjectName, required this.chapterName});
 
   final _formKey = GlobalKey<FormState>();
-  int time = 0;
-  int noOfQues = 0;
-  String difficulty = "";
+  int time = 15;
+  int noOfQues = 10;
+  String difficulty = "Easy";
+
+  bool showError = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class _SelectTimerDiffState extends State<SelectTimerDiff> {
 
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.fromLTRB(10, height*0.2, 10, 20),
+        padding: EdgeInsets.fromLTRB(10, height*0.1, 10, 20),
         color: Colors.white,
         child: Form(
           key: _formKey,
@@ -358,20 +360,29 @@ class _SelectTimerDiffState extends State<SelectTimerDiff> {
               Text(
                 'Difficulty of Questions : $difficulty',
               ),
+
               Spacer(),
+              
               ElevatedButton(
                 onPressed: (){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => Questions(
-                          subjectName: subjectName,
-                          chapterName: chapterName,
-                          time: time,
-                          noOfQues: noOfQues,
-                          difficulty: difficulty,
-                        ),),);
-                  }, 
+                  setState(() {
+                    if(time == 0 || noOfQues == 0 || difficulty == ""){
+                      showError = true;
+                    }
+                  });
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => Questions(
+                        subjectName: subjectName,
+                        chapterName: chapterName,
+                        time: time,
+                        noOfQues: noOfQues,
+                        difficulty: difficulty,
+                      ),
+                    ),
+                  );
+                }, 
                 child: Text(
                   'Start Practice',
         

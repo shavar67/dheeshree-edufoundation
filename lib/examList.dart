@@ -22,7 +22,7 @@ class _ExamListState extends State<ExamList> {
           return Container(
             margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
-              color: Color.fromARGB(253, 226, 80, 173),
+              color: Color.fromARGB(252, 66, 65, 66),
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
@@ -38,9 +38,10 @@ class _ExamListState extends State<ExamList> {
             ),
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             child: Text(
-              "JEE Mains",
+              "JEE Main",
               style: TextStyle(
                 fontSize: 18.0,
+                color: Color.fromARGB(255, 248, 245, 245),
               ),
             ),
           ); 
@@ -59,7 +60,7 @@ class _ExamListState extends State<ExamList> {
           return Container(
             margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
-              color: Color.fromARGB(253, 226, 80, 173),
+              color: Color.fromARGB(252, 66, 65, 66),
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
@@ -78,6 +79,7 @@ class _ExamListState extends State<ExamList> {
               "NEET",
               style: TextStyle(
                 fontSize: 18.0,
+                color: Color.fromARGB(255, 248, 245, 245),
               ),
             ),
           ); 
@@ -104,6 +106,10 @@ class _ExamListState extends State<ExamList> {
                   physics: BouncingScrollPhysics(),
                   children: [
                     InkWell(
+                      highlightColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      splashColor: Colors.transparent,
                       onTap: (){
                         setState((){
                           showEngList = true;
@@ -139,6 +145,10 @@ class _ExamListState extends State<ExamList> {
                     ),
                     SizedBox(width: 10,),
                     InkWell(
+                      highlightColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      splashColor: Colors.transparent,
                       onTap: (){
                         setState((){
                           showEngList = false;
@@ -174,6 +184,10 @@ class _ExamListState extends State<ExamList> {
                     ),
                     SizedBox(width: 10,),
                     InkWell(
+                      highlightColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      splashColor: Colors.transparent,
                       onTap: (){
                         setState((){
                           showEngList = false;
