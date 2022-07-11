@@ -2,9 +2,8 @@
 //"https://edu-foundation-kudos-dot-com.vercel.app/api/chapter/chapter/";
 
 const chapterLink = "https://edu-foundation-396dk0l27-kudos-dot-com.vercel.app/api/topic/";
-//const questionLink = "https://edu-foundation-kudos-dot-com.vercel.app/api/question/getchapter/";
 
-const questionLink = "https://edu-foundation-jz75uhzye-kudos-dot-com.vercel.app/api/question/gettopic";
+const questionLink = "https://edu-foundation-b1o9gyryd-kudos-dot-com.vercel.app/api/question/gettopic";
 // ----------------------------------------------------
 // get question of every subject
 // /api/question/get/:subject

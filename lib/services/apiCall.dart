@@ -21,22 +21,26 @@ class ApiCall {
     return chapters;  
   }  
 
-  Future<List<Question>> getQuestions(String subjectName, String chapterName, int noOfQues, int level) async {
-         
+  Future<List<Question>> getQuestions(String subjectName, String chapterName, int noOfQues, String difficulty) async {
+    int level;
+    difficulty.toLowerCase() == "easy" ? level = 1 : ((difficulty.toLowerCase() == "medium") ? level = 2 : level = 3);
     const String url = questionLink;
     chapterName = chapterName.replaceAll(' ', '%20');
     subjectName = subjectName.toLowerCase();
-    // var response = await http.get(Uri.parse("$url$subjectName/$queryChapName/$level?page=1&limit=10"));
-    var response = await http.get(Uri.parse("$url/$subjectName/$chapterName/$level?page=1&limit=$noOfQues"));
+    var response = await http.get(Uri.parse("$url/$subjectName/$chapterName/$level?page=1&limit=6"));
     var responseBody = json.decode(response.body);
     var responseQuestions = responseBody['result'];
     List<Question> questions = [];
-    for(var question in responseQuestions){
-      Question q = Question(question['question'], question['questionImage'], question['option1'], question['option2'], 
-        question['option3'], question['option4'], question['option1Image'], question['option2Image'], 
-        question['option3Image'], question['option4Image'],question['correct_answer']); //, question['hints']);
+
+    for(var i in responseQuestions){
+      Question q = Question(i['question'], i['questionImage'], i['option1'], i['option2'], 
+        i['option3'], i['option4'], i['option1Image'], i['option2Image'], 
+        i['option3Image'], i['option4Image']);
+      
+      print(q);
       questions.add(q);
     }
+
     return questions;  
   }
 

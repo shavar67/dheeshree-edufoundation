@@ -13,11 +13,12 @@ class _ExamListState extends State<ExamList> {
   bool showOtherList = false;
 
   Widget engineeringExamList(){
+    List engExams = ["JEE Main", "JEE Advanced", "WBJEE"];
     return Container(
       height: 500,
       child: ListView.builder(
         physics: BouncingScrollPhysics(),
-        itemCount: 15,
+        itemCount: engExams.length,
         itemBuilder: (BuildContext context, int index){
           return Container(
             margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -38,7 +39,7 @@ class _ExamListState extends State<ExamList> {
             ),
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             child: Text(
-              "JEE Main",
+              engExams[index],
               style: TextStyle(
                 fontSize: 18.0,
                 color: Color.fromARGB(255, 248, 245, 245),
@@ -51,11 +52,12 @@ class _ExamListState extends State<ExamList> {
   }
   
   Widget medicalExamList(){
+    List medicalExams = ["NEET", "JIPMER", "AIIMS"];
     return Container(
       height: 500,
       child: ListView.builder(
         physics: BouncingScrollPhysics(),
-        itemCount: 15,
+        itemCount: medicalExams.length,
         itemBuilder: (BuildContext context, int index){
           return Container(
             margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -76,7 +78,7 @@ class _ExamListState extends State<ExamList> {
             ),
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             child: Text(
-              "NEET",
+              medicalExams[index],
               style: TextStyle(
                 fontSize: 18.0,
                 color: Color.fromARGB(255, 248, 245, 245),

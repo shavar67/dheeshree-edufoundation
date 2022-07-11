@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:edufoundation_app/screens/dashboard.dart';
-import 'package:edufoundation_app/examList.dart';
+import 'package:edufoundation_app/screens/examList.dart';
 import 'package:edufoundation_app/screens/profile.dart';
 import 'package:edufoundation_app/screens/statistics.dart';
 

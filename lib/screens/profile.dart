@@ -14,27 +14,17 @@ class Profile extends StatelessWidget {
         centerTitle: true,
         title: Text("Update Profile")
       ),
-      body: Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 50,
-              backgroundColor: Colors.blueGrey,
-            ),
-            SizedBox(height: 50),
-            Text(
-              "Ankit Banerjee",
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-              ),
-            )
-          ],
-        )
-      ),
+      body: Center(
+        child: Text(
+          "Page under construction...",
+          style: TextStyle(
+            fontSize: 22,
+            color: Colors.grey,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 1.2
+          ),
+        ),
+      )
     );
   }
 }
