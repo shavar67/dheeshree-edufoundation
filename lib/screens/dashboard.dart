@@ -2,15 +2,15 @@
 
 import 'package:edufoundation_app/screens/subjectChapters.dart';
 import 'package:flutter/material.dart';
-import 'package:edufoundation_app/utils/routes.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({ Key? key }) : super(key: key);
+  const Dashboard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: null,
         backgroundColor: Color.fromARGB(255, 41, 77, 136),
         foregroundColor: Colors.grey.shade50,
         elevation: 0,
@@ -28,7 +28,8 @@ class Dashboard extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.2,
               decoration: BoxDecoration(
                 color: Color(0xff5072a7),
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(100)),
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(100)),
               ),
               child: Center(
                 child: Text(
@@ -40,24 +41,21 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
               ),
-
             ),
-    
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 InkWell(
-                  onTap: (){
+                  onTap: () async {
                     // Navigator.pushNamed(context, MyRoutes.physics);
-                    Navigator.push(
-                      context,
+                    await Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (_) => SubjectChapters(
                           subjectName: "Physics",
                         ),
                       ),
-                      );
-                    },                  
+                    );
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -85,9 +83,8 @@ class Dashboard extends StatelessWidget {
                     ),
                   ),
                 ),
-                
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     // Navigator.pushNamed(context, MyRoutes.physics);
                     Navigator.push(
                       context,
@@ -96,8 +93,8 @@ class Dashboard extends StatelessWidget {
                           subjectName: "Chemistry",
                         ),
                       ),
-                      );
-                    }, 
+                    );
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -127,12 +124,11 @@ class Dashboard extends StatelessWidget {
                 ),
               ],
             ),
-            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     // Navigator.pushNamed(context, MyRoutes.physics);
                     Navigator.push(
                       context,
@@ -141,8 +137,8 @@ class Dashboard extends StatelessWidget {
                           subjectName: "Mathematics",
                         ),
                       ),
-                      );
-                    }, 
+                    );
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -170,9 +166,8 @@ class Dashboard extends StatelessWidget {
                     ),
                   ),
                 ),
-                
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     // Navigator.pushNamed(context, MyRoutes.physics);
                     Navigator.push(
                       context,
@@ -181,8 +176,8 @@ class Dashboard extends StatelessWidget {
                           subjectName: "Biology",
                         ),
                       ),
-                      );
-                    }, 
+                    );
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),

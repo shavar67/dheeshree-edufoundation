@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import '../constants/routes/route_constants.dart';
+import '../constants/route_constants.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -26,7 +26,7 @@ class _SplashState extends State<Splash> {
      * !! to use our new [AppRouter class]
      * !! 1. use the [Navigator.of(context).pushNamed(route_constant)]
      */
-    Navigator.of(context).pushNamed(home);
+    Navigator.of(context).pushReplacementNamed(home);
   }
 
   @override

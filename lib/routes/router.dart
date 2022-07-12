@@ -1,8 +1,8 @@
-import 'package:edufoundation_app/constants/routes/route_constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../screens/splashScreen.dart';
 import '../../utils/bottomBar.dart';
+import '../constants/route_constants.dart';
 
 ///
 /// !! FOLLOW THIS TEMPLATE TO UPDATE YOUR ROUTES
